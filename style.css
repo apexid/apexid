@@ -4,7 +4,7 @@
     --card-bg: #111111;
     --text-main: #ffffff;
     --text-muted: #a1a1a1;
-    --accent-red: #D90429; /* Merah Apex */
+    --accent-red: #800606; /* Merah Apex */
     --accent-red-hover: #EF233C;
     --border-color: #222222;
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -27,12 +27,6 @@ body {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
-.logo img {
-    height: 40px;       /* Sesuaikan tinggi logo */
-    width: auto;        /* Lebar otomatis mengikuti proporsi */
-    display: block;     /* Menghapus gap bawaan inline */
-    object-fit: contain;
-}
 
 /* --- UTILITIES --- */
 .container {
