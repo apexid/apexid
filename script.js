@@ -1,20 +1,29 @@
-const sections = document.querySelectorAll(".section");
-const navLinks = document.querySelectorAll(".navbar a");
+// Smooth Scroll for Anchor Links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
 
-window.addEventListener("scroll", () => {
-    let current = "";
+// Intersection Observer for Fade-in Animations
+const revealElements = document.querySelectorAll('.reveal');
 
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop - 100;
-        if (scrollY >= sectionTop) {
-            current = section.getAttribute("id");
+const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target); // Only animate once
         }
     });
+}, {
+    root: null,
+    threshold: 0.15, // Trigger when 15% of element is visible
+    rootMargin: "0px"
+});
 
-    navLinks.forEach(link => {
-        link.style.opacity = "0.5";
-        if (link.getAttribute("href") === "#" + current) {
-            link.style.opacity = "1";
-        }
-    });
+revealElements.forEach(el => {
+    revealObserver.observe(el);
 });
