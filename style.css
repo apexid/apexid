@@ -27,6 +27,13 @@ body {
 a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 
+.logo img {
+    height: 40px;       /* Sesuaikan tinggi logo */
+    width: auto;        /* Lebar otomatis mengikuti proporsi */
+    display: block;     /* Menghapus gap bawaan inline */
+    object-fit: contain;
+}
+
 /* --- UTILITIES --- */
 .container {
     max-width: 1200px;
@@ -300,12 +307,23 @@ footer {
     margin-bottom: 60px;
 }
 
-.footer-brand h4 {
-    font-size: 1.5rem;
+.footer-brand .logo-footer img {
+    height: 50px;       /* Sedikit lebih besar di footer */
+    width: auto;
+    display: block;
     margin-bottom: 15px;
+    object-fit: contain;
 }
 
-.footer-brand p { color: var(--text-muted); font-size: 0.9rem; }
+/* Hapus style teks logo lama jika masih ada efek hover dll */
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+    display: flex;      /* Agar gambar rapi di tengah vertikal */
+    align-items: center;
+}
+
 
 .footer-col h5 {
     color: var(--text-main);
